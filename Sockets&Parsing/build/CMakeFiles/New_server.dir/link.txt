@@ -1,0 +1,1 @@
+/usr/bin/c++       CMakeFiles/New_server.dir/server.cpp.o CMakeFiles/New_server.dir/Parsing_functions.cpp.o  -o New_server -rdynamic 

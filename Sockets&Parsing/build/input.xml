@@ -1,0 +1,11 @@
+<RobotMessage Id="0" Ts="2574.057704">
+<Type>0</Type>
+<Status/>
+<Mode>Automatic</Mode>
+<Time>2574.104323</Time>
+<Frame X="1561.91" Y="0" Z="1697.5" Rx="-180" Ry="60" Rz="-180"/>
+<Joints J1="0" J2="0" J3="0" J4="-0" J5="0.523599" J6="-5.96046e-009"/><FTime>2574.053204</FTime>
+<FFrame X="1561.91" Y="0" Z="1697.5" Rx="-180" Ry="60" Rz="-180"/>
+<FJoints J1="0" J2="0" J3="0" J4="-0" J5="0.523599" J6="-5.96046e-009"/>
+</RobotMessage>
+

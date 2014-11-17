@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/fotis/Documents/Thesis/Sockets&Parsing/client.cpp
+iostream
+-
+cstring
+-
+sys/socket.h
+-
+netdb.h
+-
+unistd.h
+-
+errno.h
+-
+

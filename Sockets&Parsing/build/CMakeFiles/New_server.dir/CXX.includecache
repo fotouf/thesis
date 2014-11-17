@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/fotis/Documents/Thesis/Sockets&Parsing/Parsing_functions.cpp
+Parsing_functions.hpp
+/home/fotis/Documents/Thesis/Sockets&Parsing/Parsing_functions.hpp
+locale
+-
+boost/foreach.hpp
+-
+boost/property_tree/xml_parser.hpp
+-
+boost/property_tree/ptree.hpp
+-
+
+/home/fotis/Documents/Thesis/Sockets&Parsing/Parsing_functions.hpp
+list
+-
+set
+-
+vector
+-
+string
+-
+fstream
+-
+
+/home/fotis/Documents/Thesis/Sockets&Parsing/server.cpp
+iostream
+-
+sstream
+-
+cstring
+-
+sys/socket.h
+-
+netdb.h
+-
+Parsing_functions.hpp
+/home/fotis/Documents/Thesis/Sockets&Parsing/Parsing_functions.hpp
+
