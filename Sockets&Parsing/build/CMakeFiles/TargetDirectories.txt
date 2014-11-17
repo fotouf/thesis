@@ -1,2 +1,2 @@
-/home/fotis/Documents/Thesis/Sockets&Parsing/build/CMakeFiles/client.dir
-/home/fotis/Documents/Thesis/Sockets&Parsing/build/CMakeFiles/server.dir
+/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/build/CMakeFiles/client.dir
+/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/build/CMakeFiles/server.dir

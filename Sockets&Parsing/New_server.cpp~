@@ -24,6 +24,7 @@ int main()
     int status;
     struct addrinfo host_info;       // The struct that getaddrinfo() fills up with data.
     struct addrinfo *host_info_list; // Pointer to the to the linked list of host_info's.
+    //host_info_list = &host_info;
     std::stringstream DataBuffer;   // stream for received data, used for converting data buffer(vector) in a stream which is used by read_xml() 
     Sked sked;
     //std::ofstream odata_buffer("data_buffer.xml");
@@ -60,9 +61,33 @@ char *cstr = new char[150];
 
 
     std::cout << "Creating a socket..."  << std::endl;
+    
+
+/* 
+struct sockaddr_in listenAddr;
+memset(&listenAddr, 0, sizeof(listenAddr));
+// IPv4 address 
+listenAddr.sin_family = AF_INET;
+// your port number 
+listenAddr.sin_port = htons(5555);
+// listen on all interfaces 
+listenAddr.sin_addr.s_addr = htonl(INADDR_ANY);
+listenAddr.sin_socktype = SOCK_STREAM;
+
+// TCP socket 
+int socketfd ; // The socket descripter
+socketfd = socket(PF_INET, SOCK_STREAM, 0);
+
+// your error code, omitted here 
+
+status = bind(socketfd,(struct sockaddr *) &listenAddr, sizeof(listenAddr));
+*/
+
+
     int socketfd ; // The socket descripter
     socketfd = socket(host_info_list->ai_family, host_info_list->ai_socktype,
                       host_info_list->ai_protocol);
+
     if (socketfd == -1)  std::cout << "socket error " ;
 
     std::cout << "Binding socket..."  << std::endl;

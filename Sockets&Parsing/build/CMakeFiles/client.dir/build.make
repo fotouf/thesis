@@ -32,10 +32,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/fotis/Documents/Thesis/Sockets&Parsing"
+CMAKE_SOURCE_DIR = "/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/fotis/Documents/Thesis/Sockets&Parsing/build"
+CMAKE_BINARY_DIR = "/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/build"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/client.dir/depend.make
@@ -48,17 +48,17 @@ include CMakeFiles/client.dir/flags.make
 
 CMakeFiles/client.dir/client.cpp.o: CMakeFiles/client.dir/flags.make
 CMakeFiles/client.dir/client.cpp.o: ../client.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report "/home/fotis/Documents/Thesis/Sockets&Parsing/build/CMakeFiles" $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report "/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/build/CMakeFiles" $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/client.dir/client.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/client.dir/client.cpp.o -c "/home/fotis/Documents/Thesis/Sockets&Parsing/client.cpp"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/client.dir/client.cpp.o -c "/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/client.cpp"
 
 CMakeFiles/client.dir/client.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/client.dir/client.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E "/home/fotis/Documents/Thesis/Sockets&Parsing/client.cpp" > CMakeFiles/client.dir/client.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E "/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/client.cpp" > CMakeFiles/client.dir/client.cpp.i
 
 CMakeFiles/client.dir/client.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/client.dir/client.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S "/home/fotis/Documents/Thesis/Sockets&Parsing/client.cpp" -o CMakeFiles/client.dir/client.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S "/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/client.cpp" -o CMakeFiles/client.dir/client.cpp.s
 
 CMakeFiles/client.dir/client.cpp.o.requires:
 .PHONY : CMakeFiles/client.dir/client.cpp.o.requires
@@ -94,6 +94,6 @@ CMakeFiles/client.dir/clean:
 .PHONY : CMakeFiles/client.dir/clean
 
 CMakeFiles/client.dir/depend:
-	cd "/home/fotis/Documents/Thesis/Sockets&Parsing/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/fotis/Documents/Thesis/Sockets&Parsing" "/home/fotis/Documents/Thesis/Sockets&Parsing" "/home/fotis/Documents/Thesis/Sockets&Parsing/build" "/home/fotis/Documents/Thesis/Sockets&Parsing/build" "/home/fotis/Documents/Thesis/Sockets&Parsing/build/CMakeFiles/client.dir/DependInfo.cmake" --color=$(COLOR)
+	cd "/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing" "/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing" "/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/build" "/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/build" "/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/build/CMakeFiles/client.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/client.dir/depend
 

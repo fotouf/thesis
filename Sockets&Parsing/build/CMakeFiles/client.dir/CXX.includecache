@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/fotis/Documents/Thesis/Sockets&Parsing/client.cpp
+/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/client.cpp
 iostream
 -
 cstring

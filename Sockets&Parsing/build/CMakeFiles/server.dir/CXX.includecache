@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/fotis/Documents/Thesis/Sockets&Parsing/New_server.cpp
+/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/New_server.cpp
 iostream
 -
 sstream
@@ -18,9 +18,21 @@ sys/socket.h
 netdb.h
 -
 Parsing_functions.hpp
-/home/fotis/Documents/Thesis/Sockets&Parsing/Parsing_functions.hpp
+/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/Parsing_functions.hpp
 
-/home/fotis/Documents/Thesis/Sockets&Parsing/Parsing_functions.hpp
+/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/Parsing_functions.cpp
+Parsing_functions.hpp
+/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/Parsing_functions.hpp
+locale
+-
+boost/foreach.hpp
+-
+boost/property_tree/xml_parser.hpp
+-
+boost/property_tree/ptree.hpp
+-
+
+/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/Parsing_functions.hpp
 list
 -
 set

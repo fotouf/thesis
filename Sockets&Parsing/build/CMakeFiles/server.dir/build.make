@@ -32,10 +32,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/fotis/Documents/Thesis/Sockets&Parsing"
+CMAKE_SOURCE_DIR = "/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/fotis/Documents/Thesis/Sockets&Parsing/build"
+CMAKE_BINARY_DIR = "/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/build"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/server.dir/depend.make
@@ -48,17 +48,17 @@ include CMakeFiles/server.dir/flags.make
 
 CMakeFiles/server.dir/New_server.cpp.o: CMakeFiles/server.dir/flags.make
 CMakeFiles/server.dir/New_server.cpp.o: ../New_server.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report "/home/fotis/Documents/Thesis/Sockets&Parsing/build/CMakeFiles" $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report "/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/build/CMakeFiles" $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/server.dir/New_server.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/server.dir/New_server.cpp.o -c "/home/fotis/Documents/Thesis/Sockets&Parsing/New_server.cpp"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/server.dir/New_server.cpp.o -c "/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/New_server.cpp"
 
 CMakeFiles/server.dir/New_server.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/New_server.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E "/home/fotis/Documents/Thesis/Sockets&Parsing/New_server.cpp" > CMakeFiles/server.dir/New_server.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E "/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/New_server.cpp" > CMakeFiles/server.dir/New_server.cpp.i
 
 CMakeFiles/server.dir/New_server.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/New_server.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S "/home/fotis/Documents/Thesis/Sockets&Parsing/New_server.cpp" -o CMakeFiles/server.dir/New_server.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S "/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/New_server.cpp" -o CMakeFiles/server.dir/New_server.cpp.s
 
 CMakeFiles/server.dir/New_server.cpp.o.requires:
 .PHONY : CMakeFiles/server.dir/New_server.cpp.o.requires
@@ -71,17 +71,17 @@ CMakeFiles/server.dir/New_server.cpp.o.provides.build: CMakeFiles/server.dir/New
 
 CMakeFiles/server.dir/Parsing_functions.cpp.o: CMakeFiles/server.dir/flags.make
 CMakeFiles/server.dir/Parsing_functions.cpp.o: ../Parsing_functions.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report "/home/fotis/Documents/Thesis/Sockets&Parsing/build/CMakeFiles" $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report "/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/build/CMakeFiles" $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/server.dir/Parsing_functions.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/server.dir/Parsing_functions.cpp.o -c "/home/fotis/Documents/Thesis/Sockets&Parsing/Parsing_functions.cpp"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/server.dir/Parsing_functions.cpp.o -c "/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/Parsing_functions.cpp"
 
 CMakeFiles/server.dir/Parsing_functions.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/Parsing_functions.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E "/home/fotis/Documents/Thesis/Sockets&Parsing/Parsing_functions.cpp" > CMakeFiles/server.dir/Parsing_functions.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E "/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/Parsing_functions.cpp" > CMakeFiles/server.dir/Parsing_functions.cpp.i
 
 CMakeFiles/server.dir/Parsing_functions.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/Parsing_functions.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S "/home/fotis/Documents/Thesis/Sockets&Parsing/Parsing_functions.cpp" -o CMakeFiles/server.dir/Parsing_functions.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S "/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/Parsing_functions.cpp" -o CMakeFiles/server.dir/Parsing_functions.cpp.s
 
 CMakeFiles/server.dir/Parsing_functions.cpp.o.requires:
 .PHONY : CMakeFiles/server.dir/Parsing_functions.cpp.o.requires
@@ -120,6 +120,6 @@ CMakeFiles/server.dir/clean:
 .PHONY : CMakeFiles/server.dir/clean
 
 CMakeFiles/server.dir/depend:
-	cd "/home/fotis/Documents/Thesis/Sockets&Parsing/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/fotis/Documents/Thesis/Sockets&Parsing" "/home/fotis/Documents/Thesis/Sockets&Parsing" "/home/fotis/Documents/Thesis/Sockets&Parsing/build" "/home/fotis/Documents/Thesis/Sockets&Parsing/build" "/home/fotis/Documents/Thesis/Sockets&Parsing/build/CMakeFiles/server.dir/DependInfo.cmake" --color=$(COLOR)
+	cd "/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing" "/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing" "/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/build" "/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/build" "/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/build/CMakeFiles/server.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/server.dir/depend
 
