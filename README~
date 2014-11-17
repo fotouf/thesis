@@ -4,4 +4,4 @@ Using RRI
 Robotstudio -> c++ server 	works
 c++ server -> Robotstudio 	produces a communication error after (MaxLost+2) number of messages,  
 				despite the fact that robotstudio seems to take the data from the xml
-				messages sent ( checked by using the flexpendant). 
+				messages sent. 
