@@ -155,6 +155,8 @@ void write( Sked sked, std::ostream & os )
 
   BOOST_FOREACH(RobotMessage f,sked){
   ptree & node = pt.add("RobotMessage", "");
+  node.put("<xmlattr>.Id",f.Id);
+  node.put("<xmlattr>.Ts",f.Ts);
   node.put("Type", f.Type);
   node.put("Status", f.Status);
   //node.put("Mode", f.Mode);

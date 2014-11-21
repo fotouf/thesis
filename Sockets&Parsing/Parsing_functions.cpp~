@@ -155,14 +155,14 @@ void write( Sked sked, std::ostream & os )
 
   BOOST_FOREACH(RobotMessage f,sked){
   ptree & node = pt.add("RobotMessage", "");
-  node.put("Type", 22-f.Type);
+  node.put("Type", f.Type);
   node.put("Status", f.Status);
   //node.put("Mode", f.Mode);
 std::string myString = f.Id;
 std::istringstream buffer(myString);
 int value;
 buffer >> value;  
-  node.put("Time", 11-value);
+  node.put("Time", value);
   
   /*int cnt=1;
   BOOST_FOREACH(std::string str, f.Frame) {

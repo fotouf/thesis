@@ -24,7 +24,7 @@ int main()
     int status;
     struct addrinfo host_info;       // The struct that getaddrinfo() fills up with data.
     struct addrinfo *host_info_list; // Pointer to the to the linked list of host_info's.
-    //host_info_list = &host_info;
+    host_info_list = &host_info;       //  <-----											check
     std::stringstream DataBuffer;   // stream for received data, used for converting data buffer(vector) in a stream which is used by read_xml() 
     Sked sked;
     //std::ofstream odata_buffer("data_buffer.xml");
@@ -41,6 +41,9 @@ int main()
 //allocate memory 
 std::string mynewnewstring;
 char *cstr = new char[150]; 
+char *msg = new char[100];;
+int len;
+ssize_t bytes_sent;
 
 
 
@@ -48,14 +51,15 @@ char *cstr = new char[150];
 
     std::cout << "Setting up the structs..."  << std::endl;
 
-    host_info.ai_family = AF_UNSPEC;     // IP version not specified. Can be both.
-    host_info.ai_socktype = SOCK_STREAM; // Use SOCK_STREAM for TCP or SOCK_DGRAM for UDP.
-    host_info.ai_flags = AI_PASSIVE;     // IP Wildcard
+    host_info.ai_family = AF_UNSPEC;     // IP version not specified. Can be both.		//AF_INET or PF_INET			check
+    host_info.ai_socktype = SOCK_STREAM; // Use SOCK_STREAM for TCP or SOCK_DGRAM for UDP.						check
+    //host_info.ai_protocol = IPPROTO_TCP; //The Transmission Control Protocol (TCP) (possibly redundant setting)				check
+    host_info.ai_flags = AI_PASSIVE;     // IP Wildcard	(The socket address will be used in a call to the bind function.)										
 
 
     // FILL IN PORT NUMBER HERE!!!!!!
-    status = getaddrinfo(NULL, "5555", &host_info, &host_info_list);
-    // getaddrinfo returns 0 on succes, or some other value when an error occured.
+    status = getaddrinfo(NULL, "5151", &host_info, &host_info_list);					//5151 supports TCP - 5555 supports udp
+    // getaddrinfo returns 0 on succes, or some other value when an error occured.			//both produce the same communication error though
     // (translated into human readable text by the gai_gai_strerror function).
     if (status != 0)  std::cout << "getaddrinfo error" << gai_strerror(status) ;
 
@@ -153,7 +157,7 @@ status = bind(socketfd,(struct sockaddr *) &listenAddr, sizeof(listenAddr));
     //std::string mystring = std::string(incomming_data_buffer);
    
    
-    
+    //---------------------------------------------------------------------------------------------------------------------------
     //---put char buffer into a stream
     for(int i=0;i<(bytes_recieved);i++){
     DataBuffer.put(incomming_data_buffer[i]);
@@ -217,14 +221,19 @@ cstr[mynewnewstring.length()]='\0';
     //char *cstr = new char[mynewnewstring.length() + 1]; 
     //strcpy(cstr, mynewnewstring.c_str());
 
+//-----------------------------------------------------------------------------------------------------------------------------
 
+/*mynewnewstring = "<ReplyMessage><Type>10</Type></ReplyMessage>"; 
+strcpy(cstr, mynewnewstring.c_str());
+cstr[mynewnewstring.length()]='\0';
+msg = cstr;
+*/
     std::cout << "\nsend()ing back a message..."  << std::endl;
-    char *msg = cstr;
-    int len;
-    ssize_t bytes_sent;
+msg = cstr;
+    
     len = strlen(msg);
     std::cout<<"\n"<<len<<"\n";
-    bytes_sent = send(new_sd, msg, len, 0);
+    bytes_sent = send(new_sd, cstr, len, 0);
 
     std::cout << "\n"<< bytes_sent << "\n";
     std::cout << "\n"<< msg << "\n";
