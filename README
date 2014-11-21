@@ -2,8 +2,6 @@
 Using RRI
 
 Robotstudio -> c++ server 	works
-c++ server -> Robotstudio 	produces a communication error after (MaxLost+2) number of messages,  
-				despite the fact that robotstudio seems to take the data from the xml
-				messages sent ( checked by using the flexpendant). 
-				Same problem, I made host_info_list to point to host_info struct, as the post C++ Server Connection Issue suggests, but I have the same behavior
-				I tried also building my one struct as the post suggests and I get the same behavior
+c++ server -> Robotstudio 	works at 10ms -> 100Hz rate 
+				doesn't work at 8ms -> 125Hz rate
+				this version can be improved by not using the xml files to store data or to create the sending message 
