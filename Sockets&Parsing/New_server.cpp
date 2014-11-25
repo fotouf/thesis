@@ -27,7 +27,9 @@ int main()
     host_info_list = &host_info;       //  <-----											check
     std::stringstream DataBuffer;   // stream for received data, used for converting data buffer(vector) in a stream which is used by read_xml() 
     std::stringstream OutputBuffer;
-    Sked sked;
+    Sked sked1;
+    Sked *psked ;
+    psked = &sked1;
     //std::ofstream odata_buffer("data_buffer.xml");
     std::fstream  data_buffer;
     std::string mynewstring;
@@ -45,6 +47,7 @@ char *cstr = new char[150];
 char *msg = new char[100];;
 int len;
 ssize_t bytes_sent;
+std::stringbuf *backup;
 
 
 
@@ -66,28 +69,6 @@ ssize_t bytes_sent;
 
 
     std::cout << "Creating a socket..."  << std::endl;
-    
-
-/* 
-struct sockaddr_in listenAddr;
-memset(&listenAddr, 0, sizeof(listenAddr));
-// IPv4 address 
-listenAddr.sin_family = AF_INET;
-// your port number 
-listenAddr.sin_port = htons(5555);
-// listen on all interfaces 
-listenAddr.sin_addr.s_addr = htonl(INADDR_ANY);
-listenAddr.sin_socktype = SOCK_STREAM;
-
-// TCP socket 
-int socketfd ; // The socket descripter
-socketfd = socket(PF_INET, SOCK_STREAM, 0);
-
-// your error code, omitted here 
-
-status = bind(socketfd,(struct sockaddr *) &listenAddr, sizeof(listenAddr));
-*/
-
 
     int socketfd ; // The socket descripter
     socketfd = socket(host_info_list->ai_family, host_info_list->ai_socktype,
@@ -153,7 +134,8 @@ status = bind(socketfd,(struct sockaddr *) &listenAddr, sizeof(listenAddr));
     //---take sstream for the read() function (puts data in a struct)
     if ((bytes_recieved != 0)&(bytes_recieved != -1))
     {
-	sked = read(DataBuffer);
+	sked1.clear();
+	read(psked,DataBuffer);
     }
  
     
@@ -161,45 +143,34 @@ status = bind(socketfd,(struct sockaddr *) &listenAddr, sizeof(listenAddr));
 
 // --------------------------------------------------------------------------------- USE A STRINGSTREAM ---//
 OutputBuffer.str("");
-    p = sked.data();			//RobotMessage *
+
+    p = (*psked).data();			//RobotMessage *
     (*p).Type = k+10;
-    write(sked,OutputBuffer);
-
-OutputBuffer.seekg (0, OutputBuffer.end);
-    std::streamsize llength = OutputBuffer.tellg();
-    OutputBuffer.seekg (0, OutputBuffer.beg);
-
-
-    // read data as a block:
-    OutputBuffer.read (buffer,llength);
+    write(psked,OutputBuffer);
+mynewstring = OutputBuffer.str();
 
 OutputBuffer.flush();
+//buffer has a line with the xml version
 
-buffer[llength]='\0';					//
- 
 //-----------------------------------------------------------------------------------------------------------//
 
-    mynewstring = std::string(buffer);
-
 //delete the first line (the line about the xml version...)
-ppos = mynewstring.find("\n");
-ppos = +ppos;
-mynewnewstring = mynewstring.substr(ppos);		//std::string 
+//ppos = mynewstring.find("\n");
+//ppos = +ppos;
+mynewnewstring = mynewstring.substr(39);		//38 characters is the first line about the xml version always!
+mynewnewstring = mynewnewstring +'\0';
 
-strcpy(cstr, mynewnewstring.c_str());
-cstr[mynewnewstring.length()]='\0';
-    //TRIAL string to char
-    //char *cstr = new char[mynewnewstring.length() + 1]; 
-    //strcpy(cstr, mynewnewstring.c_str());
-
+strcpy(msg, mynewnewstring.c_str());
+//msg[mynewnewstring.length()]='\0';
+//mynewnewstring = mynewnewstring +'\0';
+//std::cout<<"\nReply message = "<< mynewnewstring;
 //-----------------------------------------------------------------------------------------------------------------------------
 
     //std::cout << "\nsend()ing back a message..."  << std::endl;
-msg = cstr;
     
     len = strlen(msg);
 //    std::cout<<"\n"<<len<<"\n";
-    bytes_sent = send(new_sd, cstr, len, 0);
+    bytes_sent = send(new_sd, msg, len, 0);
 
     //std::cout << "\n"<< bytes_sent << "\n";
     //std::cout << "\n"<< msg << "\n";

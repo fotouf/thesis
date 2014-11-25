@@ -2,7 +2,7 @@
 #include <set>
 #include <vector>
 #include <string>
-
+#include <fstream>
 //#include <boost/date_time/gregorian/gregorian.hpp>
 
 //typedef boost::gregorian::date Date;
@@ -66,5 +66,5 @@ struct RobotMessage
 typedef std::vector<RobotMessage> Sked;
 
 
-Sked read( std::istream & is );
+void read(Sked *sked, std::istream & is );
 void write( Sked sked, std::ostream & os );

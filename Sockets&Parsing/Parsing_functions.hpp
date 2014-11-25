@@ -66,5 +66,5 @@ struct RobotMessage
 typedef std::vector<RobotMessage> Sked;
 
 
-Sked read( std::istream & is );
-void write( Sked sked, std::ostream & os );
+void read(Sked *sked, std::istream & is );
+void write( Sked *sked, std::ostream & os );

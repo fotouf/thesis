@@ -73,7 +73,7 @@ namespace boost{ namespace property_tree{
 }}
 
  
-Sked read( std::istream & is )
+void read(Sked *sked, std::istream & is )
 {
 
   // populate tree structure pt
@@ -83,7 +83,7 @@ Sked read( std::istream & is )
   read_xml(is, pt);
 
   // traverse pt
-  Sked ans;
+  //Sked *ans;
   RobotMessage f;
 
 // get length of file:
@@ -106,7 +106,7 @@ Sked read( std::istream & is )
 	}*/
   f.Type = pt.get<unsigned int>("RobotMessage.Type");
   f.Status = pt.get<std::string>("RobotMessage.Status");
-      f.Mode = pt.get<std::string>("RobotMessage.Mode");	
+     f.Mode = pt.get<std::string>("RobotMessage.Mode");	
       f.Time = pt.get<float>("RobotMessage.Time");
       
      f.Frame.push_back(pt.get<std::string>("RobotMessage.Frame.<xmlattr>.X"));
@@ -141,21 +141,21 @@ Sked read( std::istream & is )
 
       f.Id = pt.get<std::string>("RobotMessage.<xmlattr>.Id");
       f.Ts = pt.get<std::string>("RobotMessage.<xmlattr>.Ts");
-      ans.push_back(f);	
+      (*sked).push_back(f);	
       
       
     
-  return ans;
+//  return ans;
 }
  
-void write( Sked sked, std::ostream & os )
+void write( Sked *sked, std::ostream & os )
 {
   using boost::property_tree::ptree;
   ptree pt;
    
   //pt.add("sked.version", 3);
 
-  BOOST_FOREACH(RobotMessage f,sked){
+  BOOST_FOREACH(RobotMessage f,(*sked)){
   ptree & node = pt.add("ReplyMessage", "");
   node.put("<xmlattr>.Id",f.Id);
   node.put("<xmlattr>.Ts",f.Ts);
@@ -283,7 +283,7 @@ buffer >> value;
 
   node.put("<xmlattr>.Id", f.Id);
   node.put("<xmlattr>.Ts", f.Ts);*/
-std::cout<<"\nId = "<<f.Id<<"\n";
+//std::cout<<"\nId = "<<f.Id<<"\n";
   }
   write_xml(os, pt);
 
