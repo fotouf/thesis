@@ -75,7 +75,7 @@ namespace boost{ namespace property_tree{
  
 Sked read( std::istream & is )
 {
-  std::cout<<"\nInside read()\n\n";
+
   // populate tree structure pt
   using boost::property_tree::ptree;
   ptree pt;
@@ -142,13 +142,10 @@ Sked read( std::istream & is )
       f.Id = pt.get<std::string>("RobotMessage.<xmlattr>.Id");
       f.Ts = pt.get<std::string>("RobotMessage.<xmlattr>.Ts");
       ans.push_back(f);	
-    std::cout << "Id ="<< f.Id <<std::endl;
-    std::cout << "Ts ="<< f.Ts <<std::endl;
-    std::cout << "FTime ="<< f.FTime <<std::endl;
+      
+      
+    
   return ans;
-    //std::cout << "Id ="<< f.Id <<std::endl;
-    //std::cout << "Ts ="<< f.Ts <<std::endl;
-    //std::cout << "FTime ="<< f.FTime <<std::endl;
 }
  
 void write( Sked sked, std::ostream & os )
@@ -288,6 +285,7 @@ buffer >> value;
   node.put("<xmlattr>.Ts", f.Ts);*/
   }
   write_xml(os, pt);
+std::cout<<"\nId = "<<f.Id<<"\n";
 }
  
 

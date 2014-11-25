@@ -129,30 +129,15 @@ status = bind(socketfd,(struct sockaddr *) &listenAddr, sizeof(listenAddr));
     for(int k=1;k<200;k++) 
     {
 
-    if( remove( "data_buffer.xml" ) != 0 )
-       perror( "\nError deleting file" );
-    else
-       puts( "\nFile successfully deleted" );
+    //std::cout << "Waiting to recieve data..."  << std::endl;
 
-    //open .xml file to store the received message
-    data_buffer.open("data_buffer.xml", std::fstream::in | std::fstream::out | std::fstream::app);
-    data_buffer.flush();
-    
-    data_buffer.seekg (0, data_buffer.end);
-    length = data_buffer.tellg();			//int
-    data_buffer.seekg (0, data_buffer.beg);
-    std::cout<< "\nalready in "<<length<<" data\n";
-
-    std::cout << "Waiting to recieve data..."  << std::endl;
-    		//ssize_t bytes_recieved;
-    		//char incomming_data_buffer[1000];
     bytes_recieved = recv(new_sd, incomming_data_buffer,1000, 0);
     // If no data arrives, the program will just wait here until some data arrives.
     if (bytes_recieved == 0) std::cout << "host shut down." << std::endl ;
     if (bytes_recieved == -1)std::cout << "recieve error!" << std::endl ;
-    std::cout << bytes_recieved << " bytes recieved :" << std::endl ;
+    //std::cout << bytes_recieved << " bytes recieved :" << std::endl ;
     incomming_data_buffer[bytes_recieved] = '\0';
-    std::cout << incomming_data_buffer << std::endl;
+    //std::cout << incomming_data_buffer << std::endl;
     
     //---from char buffer to string (works!!)
     //std::string mystring = std::string(incomming_data_buffer);
@@ -163,52 +148,19 @@ status = bind(socketfd,(struct sockaddr *) &listenAddr, sizeof(listenAddr));
     for(int i=0;i<(bytes_recieved);i++){
     DataBuffer.put(incomming_data_buffer[i]);
     }
- 
-/*------------ Storing received data in an xml file and read it in a struct ---------------*/
-    //--put char buffer into a stream;
-    data_buffer<< incomming_data_buffer;
-    data_buffer.close();
-  
-    //---take istream for the read() function (puts data in a struct)
-    std::ifstream input("data_buffer.xml");
+    //DataBuffer<<incomming_data_buffer;
+   
+    //---take sstream for the read() function (puts data in a struct)
     if ((bytes_recieved != 0)&(bytes_recieved != -1))
     {
 	sked = read(DataBuffer);
     }
-    input.close();
-
+ 
     
 /*------------- Create the ReplyMessage -----------------*/
 
-
-
-/*    //---modify received data and put it in a .xml file 
-    std::ofstream output("output.xml");
-    p = sked.data();			//RobotMessage *
-    (*p).Type = k+10;    
-    write(sked,output);
-
-    
-    output.close();
-
-    //---read .xml file in a ifstream and put it in a string
-    std::ifstream reply("output.xml");
-    		//std::string mynewstring;
-    reply.seekg (0, reply.end);
-    std::streamsize llength = reply.tellg();
-    reply.seekg (0, reply.beg);
-
-
-    		// allocate memory:
-    		//char * buffer = new char [llength];
-
-    // read data as a block:
-    reply.read (buffer,llength);
-buffer[llength]='\0';					//
-    reply.close();*/
-
 // --------------------------------------------------------------------------------- USE A STRINGSTREAM ---//
-
+OutputBuffer.str("");
     p = sked.data();			//RobotMessage *
     (*p).Type = k+10;
     write(sked,OutputBuffer);
@@ -217,9 +169,6 @@ OutputBuffer.seekg (0, OutputBuffer.end);
     std::streamsize llength = OutputBuffer.tellg();
     OutputBuffer.seekg (0, OutputBuffer.beg);
 
-std::cout<<"\nlength of buffer = "<<llength<<"\n";
-    		// allocate memory:
-    		//char * buffer = new char [llength];
 
     // read data as a block:
     OutputBuffer.read (buffer,llength);
@@ -231,16 +180,6 @@ buffer[llength]='\0';					//
 //-----------------------------------------------------------------------------------------------------------//
 
     mynewstring = std::string(buffer);
-//std::cout<<llength<<" length\n";
-//std::cout<<buffer<<"  buffer\n";
-//std::cout<<mynewstring<<"  string\n";
-
-   /*pos = 0;					//size_t 
-    while((pos = mynewstring.find("RobotMessage", pos)) != std::string::npos)
-    {
-      mynewstring.replace(pos, std::string("RobotMessage").length(), "ReplyMessage");
-      pos += std::string("ReplyMessage").length();
-    }*/
 
 //delete the first line (the line about the xml version...)
 ppos = mynewstring.find("\n");
@@ -255,20 +194,15 @@ cstr[mynewnewstring.length()]='\0';
 
 //-----------------------------------------------------------------------------------------------------------------------------
 
-/*mynewnewstring = "<ReplyMessage><Type>10</Type></ReplyMessage>"; 
-strcpy(cstr, mynewnewstring.c_str());
-cstr[mynewnewstring.length()]='\0';
-msg = cstr;
-*/
-    std::cout << "\nsend()ing back a message..."  << std::endl;
+    //std::cout << "\nsend()ing back a message..."  << std::endl;
 msg = cstr;
     
     len = strlen(msg);
 //    std::cout<<"\n"<<len<<"\n";
     bytes_sent = send(new_sd, cstr, len, 0);
 
-    std::cout << "\n"<< bytes_sent << "\n";
-    std::cout << "\n"<< msg << "\n";
+    //std::cout << "\n"<< bytes_sent << "\n";
+    //std::cout << "\n"<< msg << "\n";
  
    }
 

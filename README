@@ -2,9 +2,7 @@
 Using RRI
 
 It uses stringstreams to store the imputdata for read_xml and for write_xml
-Hopefully it's already faster! 
 
 Robotstudio -> c++ server 	works
-c++ server -> Robotstudio 	works at 10ms -> 100Hz rate 
-				doesn't work at 8ms -> 125Hz rate
-				this version can be improved by not using the xml files to store data or to create the sending message 
+c++ server -> Robotstudio 	works at 8ms -> 125Hz rate 
+				can be further improve! 
