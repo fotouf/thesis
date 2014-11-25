@@ -75,7 +75,7 @@ namespace boost{ namespace property_tree{
  
 Sked read( std::istream & is )
 {
-std::cout<<"Inside read()\n\n";
+  std::cout<<"\nInside read()\n\n";
   // populate tree structure pt
   using boost::property_tree::ptree;
   ptree pt;
@@ -87,16 +87,16 @@ std::cout<<"Inside read()\n\n";
   RobotMessage f;
 
 // get length of file:
-    is.seekg (0, is.end);
+ /*   is.seekg (0, is.end);
     int length = is.tellg();
     is.seekg (0, is.beg);
 
     char * buffer = new char [length];
 
-    std::cout << "Reading " << length << " data\n\n" ;
+ //   std::cout << "Reading " << length << " data\n\n" ;
     // read data as a block:
    is.read (buffer,length);
-   int cnt =0;
+   int cnt =0;*/
  /* BOOST_FOREACH(ptree::value_type &v,pt.get_child("RobotMessage"))
 	{
 		std::cout<<cnt;
@@ -154,7 +154,7 @@ void write( Sked sked, std::ostream & os )
   //pt.add("sked.version", 3);
 
   BOOST_FOREACH(RobotMessage f,sked){
-  ptree & node = pt.add("RobotMessage", "");
+  ptree & node = pt.add("ReplyMessage", "");
   node.put("<xmlattr>.Id",f.Id);
   node.put("<xmlattr>.Ts",f.Ts);
   node.put("Type", f.Type);

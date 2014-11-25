@@ -26,6 +26,7 @@ int main()
     struct addrinfo *host_info_list; // Pointer to the to the linked list of host_info's.
     host_info_list = &host_info;       //  <-----											check
     std::stringstream DataBuffer;   // stream for received data, used for converting data buffer(vector) in a stream which is used by read_xml() 
+    std::stringstream OutputBuffer;
     Sked sked;
     //std::ofstream odata_buffer("data_buffer.xml");
     std::fstream  data_buffer;
@@ -125,7 +126,7 @@ status = bind(socketfd,(struct sockaddr *) &listenAddr, sizeof(listenAddr));
 
 	
 
-    for(int k=1;k<80;k++) 
+    for(int k=1;k<200;k++) 
     {
 
     if( remove( "data_buffer.xml" ) != 0 )
@@ -158,11 +159,12 @@ status = bind(socketfd,(struct sockaddr *) &listenAddr, sizeof(listenAddr));
    
    
     //---------------------------------------------------------------------------------------------------------------------------
-    //---put char buffer into a stream
+    //---put char buffer into a stringstream
     for(int i=0;i<(bytes_recieved);i++){
     DataBuffer.put(incomming_data_buffer[i]);
     }
  
+/*------------ Storing received data in an xml file and read it in a struct ---------------*/
     //--put char buffer into a stream;
     data_buffer<< incomming_data_buffer;
     data_buffer.close();
@@ -171,19 +173,25 @@ status = bind(socketfd,(struct sockaddr *) &listenAddr, sizeof(listenAddr));
     std::ifstream input("data_buffer.xml");
     if ((bytes_recieved != 0)&(bytes_recieved != -1))
     {
-	sked = read(input);
+	sked = read(DataBuffer);
     }
     input.close();
 
-    //---modify received data and put it in a .xml file 
+    
+/*------------- Create the ReplyMessage -----------------*/
+
+
+
+/*    //---modify received data and put it in a .xml file 
     std::ofstream output("output.xml");
     p = sked.data();			//RobotMessage *
     (*p).Type = k+10;    
     write(sked,output);
+
     
     output.close();
 
-    //---read .xml file in a stream and put it in a string
+    //---read .xml file in a ifstream and put it in a string
     std::ifstream reply("output.xml");
     		//std::string mynewstring;
     reply.seekg (0, reply.end);
@@ -197,20 +205,44 @@ status = bind(socketfd,(struct sockaddr *) &listenAddr, sizeof(listenAddr));
     // read data as a block:
     reply.read (buffer,llength);
 buffer[llength]='\0';					//
-    reply.close();
+    reply.close();*/
+
+// --------------------------------------------------------------------------------- USE A STRINGSTREAM ---//
+
+    p = sked.data();			//RobotMessage *
+    (*p).Type = k+10;
+    write(sked,OutputBuffer);
+
+OutputBuffer.seekg (0, OutputBuffer.end);
+    std::streamsize llength = OutputBuffer.tellg();
+    OutputBuffer.seekg (0, OutputBuffer.beg);
+
+std::cout<<"\nlength of buffer = "<<llength<<"\n";
+    		// allocate memory:
+    		//char * buffer = new char [llength];
+
+    // read data as a block:
+    OutputBuffer.read (buffer,llength);
+
+OutputBuffer.flush();
+
+buffer[llength]='\0';					//
+ 
+//-----------------------------------------------------------------------------------------------------------//
+
     mynewstring = std::string(buffer);
 //std::cout<<llength<<" length\n";
 //std::cout<<buffer<<"  buffer\n";
-std::cout<<mynewstring<<"  string\n";
+//std::cout<<mynewstring<<"  string\n";
 
-    pos = 0;					//size_t 
+   /*pos = 0;					//size_t 
     while((pos = mynewstring.find("RobotMessage", pos)) != std::string::npos)
     {
       mynewstring.replace(pos, std::string("RobotMessage").length(), "ReplyMessage");
       pos += std::string("ReplyMessage").length();
-    }
-//delete the first line (the line about the xml version...)
+    }*/
 
+//delete the first line (the line about the xml version...)
 ppos = mynewstring.find("\n");
 ppos = +ppos;
 mynewnewstring = mynewstring.substr(ppos);		//std::string 
@@ -232,7 +264,7 @@ msg = cstr;
 msg = cstr;
     
     len = strlen(msg);
-    std::cout<<"\n"<<len<<"\n";
+//    std::cout<<"\n"<<len<<"\n";
     bytes_sent = send(new_sd, cstr, len, 0);
 
     std::cout << "\n"<< bytes_sent << "\n";
