@@ -1,1 +1,1 @@
-/usr/bin/c++       CMakeFiles/server.dir/New_server.cpp.o CMakeFiles/server.dir/Parsing_functions.cpp.o  -o server -rdynamic 
+/usr/bin/c++    -O3 -O3 -DNDEBUG    CMakeFiles/server.dir/New_server.cpp.o CMakeFiles/server.dir/Rapid_Parsing_functions.cpp.o  -o server -rdynamic 

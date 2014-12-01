@@ -1,0 +1,65 @@
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <string> 
+#include <sstream>
+#include "rapidxml.hpp"
+#include "rapidxml_print.hpp"
+#include <list>
+//#include <iostream>
+//#include <sstream>
+#include <cstring>      // Needed for memset
+
+
+
+//#define RAPIDXML_NO_EXCEPTIONS
+
+
+struct RobotMessage
+{
+  unsigned int Type;
+  std::string Status;
+  std::string Mode;
+  float Time;
+  std::list<std::string> Frame;
+  
+  std::list<std::string> Joints;
+  
+  float FTime;
+  std::list<std::string> FFrame;
+  std::list	<std::string> FJoints;
+  
+  std::string Id;
+  std::string Ts;
+};
+ 
+typedef std::vector<RobotMessage> Sked;
+
+void rxml_read(Sked *sked, std::istream & is );
+void rxml_write( Sked *sked, std::stringstream & os );
+
+/*
+#define RAPIDXML_PARSE_ERROR(what, where) { parse_error_handler(what, where); assert(0); }
+
+namespace rapidxml
+{
+    //! When exceptions are disabled by defining RAPIDXML_NO_EXCEPTIONS, 
+    //! this function is called to notify user about the error.
+    //! It must be defined by the user.
+    //! <br><br>
+    //! This function cannot return. If it does, the results are undefined.
+    //! <br><br>
+    //! A very simple definition might look like that:
+    //! <pre>
+    //! void %rapidxml::%parse_error_handler(const char *what, void *where)
+    //! {
+    //!     std::cout << "Parse error: " << what << "\n";
+    //!     std::abort();
+    //! }
+    //! </pre>
+    //! \param what Human readable description of the error.
+    //! \param where Pointer to character data where error was detected.
+    void parse_error_handler(const char *what, void *where) { std::cout << "Parse error: " << what << "\n"; std::abort(); } 
+}*/
+
+

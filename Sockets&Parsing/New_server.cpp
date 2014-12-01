@@ -2,12 +2,11 @@
 sockets, TCP/IP.
 */
 
-#include <iostream>
-#include <sstream>
-#include <cstring>      // Needed for memset
+
 #include <sys/socket.h> // Needed for the socket functions
 #include <netdb.h>      // Needed for the socket functions
-#include "Parsing_functions.hpp"
+#include "Rapid_Parsing_functions.hpp"
+
 
 /*void myReplace(std::string& str,  std::string oldStr, std::string newStr)
 {
@@ -48,6 +47,7 @@ char *msg = new char[100];;
 int len;
 ssize_t bytes_sent;
 std::stringbuf *backup;
+std::stringstream test;
 
 
 
@@ -107,7 +107,7 @@ std::stringbuf *backup;
 
 	
 
-    for(int k=1;k<200;k++) 
+    for(int k=1;k<500;k++) 
     {
 
     //std::cout << "Waiting to recieve data..."  << std::endl;
@@ -118,7 +118,7 @@ std::stringbuf *backup;
     if (bytes_recieved == -1)std::cout << "recieve error!" << std::endl ;
     //std::cout << bytes_recieved << " bytes recieved :" << std::endl ;
     incomming_data_buffer[bytes_recieved] = '\0';
-    //std::cout << incomming_data_buffer << std::endl;
+  //  std::cout << incomming_data_buffer << std::endl;
     
     //---from char buffer to string (works!!)
     //std::string mystring = std::string(incomming_data_buffer);
@@ -135,7 +135,7 @@ std::stringbuf *backup;
     if ((bytes_recieved != 0)&(bytes_recieved != -1))
     {
 	sked1.clear();
-	read(psked,DataBuffer);
+	rxml_read(psked,DataBuffer);
     }
  
     
@@ -146,7 +146,7 @@ OutputBuffer.str("");
 
     p = (*psked).data();			//RobotMessage *
     (*p).Type = k+10;
-    write(psked,OutputBuffer);
+    rxml_write(psked,OutputBuffer);
 mynewstring = OutputBuffer.str();
 
 OutputBuffer.flush();
@@ -154,31 +154,34 @@ OutputBuffer.flush();
 
 //-----------------------------------------------------------------------------------------------------------//
 
-//delete the first line (the line about the xml version...)
-//ppos = mynewstring.find("\n");
-//ppos = +ppos;
-mynewnewstring = mynewstring.substr(39);		//38 characters is the first line about the xml version always!
-mynewnewstring = mynewnewstring +'\0';
+//mynewnewstring = mynewstring.substr(39);		//38 characters is the first line about the xml version always! UNcomment if boost library is used! 
+mynewnewstring = mynewnewstring;// +'\0';
 
-strcpy(msg, mynewnewstring.c_str());
+strcpy(msg, mynewstring.c_str());
 //msg[mynewnewstring.length()]='\0';
 //mynewnewstring = mynewnewstring +'\0';
 //std::cout<<"\nReply message = "<< mynewnewstring;
 //-----------------------------------------------------------------------------------------------------------------------------
 
-    //std::cout << "\nsend()ing back a message..."  << std::endl;
-    
-    len = strlen(msg);
-//    std::cout<<"\n"<<len<<"\n";
-    bytes_sent = send(new_sd, msg, len, 0);
+// std::cout << "\n"<< msg << "\n";
+/*Test Stuff*/
+//std::cout << "\nsend()ing back a message..."  << std::endl;
+//test.str("");
+//test<<(k-1);
+//std::string la = test.str();
+// mynewnewstring = "<ReplyMessage Id=\""+ (la) +"\" Ts=\""+ (la) + "\"><Type>"+(la)+"</Type><Status/><Mode>2</Mode></ReplyMessage>";
+/*end of test stuff*/
 
-    //std::cout << "\n"<< bytes_sent << "\n";
-    //std::cout << "\n"<< msg << "\n";
+
+    len = strlen(msg);
+    bytes_sent = send(new_sd, msg, len, 0);
+   
  
    }
 
 //END OF LOOP ---------------------------
-
+    RobotMessage *f =(*psked).data();
+    std::cout <<"\nLast Message Id = "<< (*f).Id<<"\n";
     std::cout << "Stopping server..." << std::endl;
     freeaddrinfo(host_info_list);
     close(new_sd);

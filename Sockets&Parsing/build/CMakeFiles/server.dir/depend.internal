@@ -3,7 +3,11 @@
 
 CMakeFiles/server.dir/New_server.cpp.o
  /home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/New_server.cpp
- /home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/Parsing_functions.hpp
-CMakeFiles/server.dir/Parsing_functions.cpp.o
- /home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/Parsing_functions.cpp
- /home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/Parsing_functions.hpp
+ /home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/Rapid_Parsing_functions.hpp
+ /home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/rapidxml.hpp
+ /home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/rapidxml_print.hpp
+CMakeFiles/server.dir/Rapid_Parsing_functions.cpp.o
+ /home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/Rapid_Parsing_functions.cpp
+ /home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/Rapid_Parsing_functions.hpp
+ /home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/rapidxml.hpp
+ /home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/rapidxml_print.hpp

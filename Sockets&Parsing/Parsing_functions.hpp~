@@ -1,8 +1,15 @@
-#include <list>
-#include <set>
-#include <vector>
-#include <string>
+#include <iostream>
 #include <fstream>
+#include <vector>
+#include <string> 
+#include <sstream>
+#include "rapidxml.hpp"
+#include "rapidxml_print.hpp"
+#include <list>
+//#include <iostream>
+//#include <sstream>
+#include <cstring>      // Needed for memset
+
 //#include <boost/date_time/gregorian/gregorian.hpp>
 
 //typedef boost::gregorian::date Date;
@@ -67,4 +74,4 @@ typedef std::vector<RobotMessage> Sked;
 
 
 void read(Sked *sked, std::istream & is );
-void write( Sked sked, std::ostream & os );
+void write( Sked *sked, std::ostream & os );

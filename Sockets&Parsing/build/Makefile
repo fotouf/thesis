@@ -145,29 +145,29 @@ New_server.cpp.s:
 	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/New_server.cpp.s
 .PHONY : New_server.cpp.s
 
-Parsing_functions.o: Parsing_functions.cpp.o
-.PHONY : Parsing_functions.o
+Rapid_Parsing_functions.o: Rapid_Parsing_functions.cpp.o
+.PHONY : Rapid_Parsing_functions.o
 
 # target to build an object file
-Parsing_functions.cpp.o:
-	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/Parsing_functions.cpp.o
-.PHONY : Parsing_functions.cpp.o
+Rapid_Parsing_functions.cpp.o:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/Rapid_Parsing_functions.cpp.o
+.PHONY : Rapid_Parsing_functions.cpp.o
 
-Parsing_functions.i: Parsing_functions.cpp.i
-.PHONY : Parsing_functions.i
+Rapid_Parsing_functions.i: Rapid_Parsing_functions.cpp.i
+.PHONY : Rapid_Parsing_functions.i
 
 # target to preprocess a source file
-Parsing_functions.cpp.i:
-	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/Parsing_functions.cpp.i
-.PHONY : Parsing_functions.cpp.i
+Rapid_Parsing_functions.cpp.i:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/Rapid_Parsing_functions.cpp.i
+.PHONY : Rapid_Parsing_functions.cpp.i
 
-Parsing_functions.s: Parsing_functions.cpp.s
-.PHONY : Parsing_functions.s
+Rapid_Parsing_functions.s: Rapid_Parsing_functions.cpp.s
+.PHONY : Rapid_Parsing_functions.s
 
 # target to generate assembly for a file
-Parsing_functions.cpp.s:
-	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/Parsing_functions.cpp.s
-.PHONY : Parsing_functions.cpp.s
+Rapid_Parsing_functions.cpp.s:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/Rapid_Parsing_functions.cpp.s
+.PHONY : Rapid_Parsing_functions.cpp.s
 
 client.o: client.cpp.o
 .PHONY : client.o
@@ -206,9 +206,9 @@ help:
 	@echo "... New_server.o"
 	@echo "... New_server.i"
 	@echo "... New_server.s"
-	@echo "... Parsing_functions.o"
-	@echo "... Parsing_functions.i"
-	@echo "... Parsing_functions.s"
+	@echo "... Rapid_Parsing_functions.o"
+	@echo "... Rapid_Parsing_functions.i"
+	@echo "... Rapid_Parsing_functions.s"
 	@echo "... client.o"
 	@echo "... client.i"
 	@echo "... client.s"

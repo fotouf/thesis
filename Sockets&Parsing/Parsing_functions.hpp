@@ -1,8 +1,13 @@
-#include <list>
-#include <set>
-#include <vector>
-#include <string>
+#include <iostream>
 #include <fstream>
+#include <vector>
+#include <string> 
+#include <sstream>
+#include <list>
+//#include <iostream>
+//#include <sstream>
+#include <cstring>      // Needed for memset
+
 //#include <boost/date_time/gregorian/gregorian.hpp>
 
 //typedef boost::gregorian::date Date;

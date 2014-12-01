@@ -69,39 +69,39 @@ CMakeFiles/server.dir/New_server.cpp.o.provides: CMakeFiles/server.dir/New_serve
 
 CMakeFiles/server.dir/New_server.cpp.o.provides.build: CMakeFiles/server.dir/New_server.cpp.o
 
-CMakeFiles/server.dir/Parsing_functions.cpp.o: CMakeFiles/server.dir/flags.make
-CMakeFiles/server.dir/Parsing_functions.cpp.o: ../Parsing_functions.cpp
+CMakeFiles/server.dir/Rapid_Parsing_functions.cpp.o: CMakeFiles/server.dir/flags.make
+CMakeFiles/server.dir/Rapid_Parsing_functions.cpp.o: ../Rapid_Parsing_functions.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report "/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/build/CMakeFiles" $(CMAKE_PROGRESS_2)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/server.dir/Parsing_functions.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/server.dir/Parsing_functions.cpp.o -c "/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/Parsing_functions.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/server.dir/Rapid_Parsing_functions.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/server.dir/Rapid_Parsing_functions.cpp.o -c "/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/Rapid_Parsing_functions.cpp"
 
-CMakeFiles/server.dir/Parsing_functions.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/Parsing_functions.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E "/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/Parsing_functions.cpp" > CMakeFiles/server.dir/Parsing_functions.cpp.i
+CMakeFiles/server.dir/Rapid_Parsing_functions.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/Rapid_Parsing_functions.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E "/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/Rapid_Parsing_functions.cpp" > CMakeFiles/server.dir/Rapid_Parsing_functions.cpp.i
 
-CMakeFiles/server.dir/Parsing_functions.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/Parsing_functions.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S "/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/Parsing_functions.cpp" -o CMakeFiles/server.dir/Parsing_functions.cpp.s
+CMakeFiles/server.dir/Rapid_Parsing_functions.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/Rapid_Parsing_functions.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S "/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/Rapid_Parsing_functions.cpp" -o CMakeFiles/server.dir/Rapid_Parsing_functions.cpp.s
 
-CMakeFiles/server.dir/Parsing_functions.cpp.o.requires:
-.PHONY : CMakeFiles/server.dir/Parsing_functions.cpp.o.requires
+CMakeFiles/server.dir/Rapid_Parsing_functions.cpp.o.requires:
+.PHONY : CMakeFiles/server.dir/Rapid_Parsing_functions.cpp.o.requires
 
-CMakeFiles/server.dir/Parsing_functions.cpp.o.provides: CMakeFiles/server.dir/Parsing_functions.cpp.o.requires
-	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/Parsing_functions.cpp.o.provides.build
-.PHONY : CMakeFiles/server.dir/Parsing_functions.cpp.o.provides
+CMakeFiles/server.dir/Rapid_Parsing_functions.cpp.o.provides: CMakeFiles/server.dir/Rapid_Parsing_functions.cpp.o.requires
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/Rapid_Parsing_functions.cpp.o.provides.build
+.PHONY : CMakeFiles/server.dir/Rapid_Parsing_functions.cpp.o.provides
 
-CMakeFiles/server.dir/Parsing_functions.cpp.o.provides.build: CMakeFiles/server.dir/Parsing_functions.cpp.o
+CMakeFiles/server.dir/Rapid_Parsing_functions.cpp.o.provides.build: CMakeFiles/server.dir/Rapid_Parsing_functions.cpp.o
 
 # Object files for target server
 server_OBJECTS = \
 "CMakeFiles/server.dir/New_server.cpp.o" \
-"CMakeFiles/server.dir/Parsing_functions.cpp.o"
+"CMakeFiles/server.dir/Rapid_Parsing_functions.cpp.o"
 
 # External object files for target server
 server_EXTERNAL_OBJECTS =
 
 server: CMakeFiles/server.dir/New_server.cpp.o
-server: CMakeFiles/server.dir/Parsing_functions.cpp.o
+server: CMakeFiles/server.dir/Rapid_Parsing_functions.cpp.o
 server: CMakeFiles/server.dir/build.make
 server: CMakeFiles/server.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable server"
@@ -112,7 +112,7 @@ CMakeFiles/server.dir/build: server
 .PHONY : CMakeFiles/server.dir/build
 
 CMakeFiles/server.dir/requires: CMakeFiles/server.dir/New_server.cpp.o.requires
-CMakeFiles/server.dir/requires: CMakeFiles/server.dir/Parsing_functions.cpp.o.requires
+CMakeFiles/server.dir/requires: CMakeFiles/server.dir/Rapid_Parsing_functions.cpp.o.requires
 .PHONY : CMakeFiles/server.dir/requires
 
 CMakeFiles/server.dir/clean:
