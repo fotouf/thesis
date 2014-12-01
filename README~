@@ -5,4 +5,4 @@ It uses stringstreams to store the imputdata for read_xml and for write_xml
 
 Robotstudio -> c++ server 	works
 c++ server -> Robotstudio 	works at 8ms -> 125Hz rate 
-				can be further improve 
+				can be further improve! 
