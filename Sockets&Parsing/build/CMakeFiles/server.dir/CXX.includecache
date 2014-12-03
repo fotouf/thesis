@@ -6,10 +6,14 @@
 
 #IncludeRegexTransform: 
 
-/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/Rapid_Parsing_functions.cpp
-algorithm
+/home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/New_server.cpp
+chrono
 -
-cstring
+ctime
+-
+sys/socket.h
+-
+netdb.h
 -
 Rapid_Parsing_functions.hpp
 /home/fotis/Documents/Thesis/git_folder/Sockets&Parsing/Rapid_Parsing_functions.hpp
