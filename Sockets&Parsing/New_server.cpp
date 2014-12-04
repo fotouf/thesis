@@ -117,32 +117,18 @@ std::stringstream test;
 std::chrono::time_point<std::chrono::system_clock> start, end;
 start = std::chrono::system_clock::now();
  
-   bytes_recieved = recv(new_sd, incomming_data_buffer,550, 0);
+   bytes_recieved = recv(new_sd, incomming_data_buffer,1000, 0);
 
     // If no data arrives, the program will just wait here until some data arrives.
     if (bytes_recieved == 0) std::cout << "host shut down." << std::endl ;
     if (bytes_recieved == -1)std::cout << "recieve error!" << std::endl ;
     //std::cout << bytes_recieved << " bytes recieved :" << std::endl ;
     incomming_data_buffer[bytes_recieved] = '\0';
-    //std::cout << bytes_recieved << std::endl;
     
-    //---from char buffer to string (works!!)
-    //std::string mystring = std::string(incomming_data_buffer);
-   
-//end = std::chrono::system_clock::now();
-//std::chrono::duration<double> elapsed_seconds = end-start;
-
-//std::time_t end_time = std::chrono::system_clock::to_time_t(end);
- 
-//std::cout << "server receive duration: " << elapsed_seconds.count() << "s\n";
 
 std::chrono::time_point<std::chrono::system_clock> start1= std::chrono::system_clock::now();
    
-    //---------------------------------------------------------------------------------------------------------------------------
-    //---put char buffer into a stringstream
-    //for(int i=0;i<(bytes_recieved);i++){
-    //DataBuffer.put(incomming_data_buffer[i]);
-    //}
+    
     DataBuffer<<incomming_data_buffer;
    
     //---take sstream for the read() function (puts data in a struct)
@@ -152,14 +138,9 @@ std::chrono::time_point<std::chrono::system_clock> start1= std::chrono::system_c
 	rxml_read(psked,DataBuffer);
     }
  
-//end = std::chrono::system_clock::now();
-//std::chrono::duration<double> elapsed_seconds2 = end-start;
-//std::time_t end_time = std::chrono::system_clock::to_time_t(end);
- 
-//std::cout << "read xml duration: " << elapsed_seconds2.count() << "s\n";
+
     
 /*------------- Create the ReplyMessage -----------------*/
-//start= std::chrono::system_clock::now();
 
 // --------------------------------------------------------------------------------- USE A STRINGSTREAM ---//
 OutputBuffer.str("");
@@ -182,13 +163,7 @@ strcpy(msg, mynewstring.c_str());
 //mynewnewstring = mynewnewstring +'\0';
 //std::cout<<"\nReply message = "<< mynewnewstring;
 //-----------------------------------------------------------------------------------------------------------------------------
-//end = std::chrono::system_clock::now();
-//std::chrono::duration<double> elapsed_seconds3 = end-start;
-//std::time_t end_time = std::chrono::system_clock::to_time_t(end);
- 
-//std::cout << "write xml duration: " << elapsed_seconds3.count() << "s\n";
-    
-// std::cout << "\n"<< msg << "\n";
+
 /*Test Stuff*/
 //std::cout << "\nsend()ing back a message..."  << std::endl;
 //test.str("");
@@ -197,19 +172,15 @@ strcpy(msg, mynewstring.c_str());
 // mynewnewstring = "<ReplyMessage Id=\""+ (la) +"\" Ts=\""+ (la) + "\"><Type>"+(la)+"</Type><Status/><Mode>2</Mode></ReplyMessage>";
 /*end of test stuff*/
 
-//start =std::chrono::system_clock::now();
     len = strlen(msg);
     bytes_sent = send(new_sd, msg, len, 0);
    
 end = std::chrono::system_clock::now();
 std::chrono::duration<double> elapsed_seconds4 = end-start;
-//std::time_t end_time = std::chrono::system_clock::to_time_t(end);
  
 std::cout << "whole duration: " << elapsed_seconds4.count() << "s\n";
      
-std::chrono::duration<double> elapsed_seconds1 = end-start1;
-//std::time_t end_time = std::chrono::system_clock::to_time_t(end);
- 
+std::chrono::duration<double> elapsed_seconds1 = end-start1; 
 std::cout << "process data and send them duration: " << elapsed_seconds1.count() << "s\n";
    }
 
