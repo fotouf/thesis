@@ -23,7 +23,7 @@
 ///////////////////////////////////////////////////////////////////////////
 // RAPIDXML_PARSE_ERROR
     
-#define RAPIDXML_NO_EXCEPTIONS
+
 #if defined(RAPIDXML_NO_EXCEPTIONS)
 
 #define RAPIDXML_PARSE_ERROR(what, where) { parse_error_handler(what, where); assert(0); }
@@ -46,7 +46,7 @@ namespace rapidxml
     //! </pre>
     //! \param what Human readable description of the error.
     //! \param where Pointer to character data where error was detected.
-    void rapidxml::parse_error_handler(const char *what, void *where); 
+    void parse_error_handler(const char *what, void *where){std::cout << "Parse error: " << what << "\n"; std::abort(); } ; 
 }
 
 #else

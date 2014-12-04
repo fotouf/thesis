@@ -117,14 +117,14 @@ std::stringstream test;
 std::chrono::time_point<std::chrono::system_clock> start, end;
 start = std::chrono::system_clock::now();
  
-   bytes_recieved = recv(new_sd, incomming_data_buffer,1000, 0);
+   bytes_recieved = recv(new_sd, incomming_data_buffer,550, 0);
 
     // If no data arrives, the program will just wait here until some data arrives.
     if (bytes_recieved == 0) std::cout << "host shut down." << std::endl ;
     if (bytes_recieved == -1)std::cout << "recieve error!" << std::endl ;
     //std::cout << bytes_recieved << " bytes recieved :" << std::endl ;
     incomming_data_buffer[bytes_recieved] = '\0';
-  //  std::cout << incomming_data_buffer << std::endl;
+    //std::cout << bytes_recieved << std::endl;
     
     //---from char buffer to string (works!!)
     //std::string mystring = std::string(incomming_data_buffer);
@@ -136,7 +136,7 @@ start = std::chrono::system_clock::now();
  
 //std::cout << "server receive duration: " << elapsed_seconds.count() << "s\n";
 
-//start= std::chrono::system_clock::now();
+std::chrono::time_point<std::chrono::system_clock> start1= std::chrono::system_clock::now();
    
     //---------------------------------------------------------------------------------------------------------------------------
     //---put char buffer into a stringstream
@@ -207,6 +207,10 @@ std::chrono::duration<double> elapsed_seconds4 = end-start;
  
 std::cout << "whole duration: " << elapsed_seconds4.count() << "s\n";
      
+std::chrono::duration<double> elapsed_seconds1 = end-start1;
+//std::time_t end_time = std::chrono::system_clock::to_time_t(end);
+ 
+std::cout << "process data and send them duration: " << elapsed_seconds1.count() << "s\n";
    }
 
 //END OF LOOP ---------------------------

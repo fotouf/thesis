@@ -3,6 +3,9 @@
 #include <vector>
 #include <string> 
 #include <sstream>
+
+//#define RAPIDXML_NO_EXCEPTIONS 
+
 #include "rapidxml.hpp"
 #include "rapidxml_print.hpp"
 #include <list>
@@ -62,4 +65,4 @@ namespace rapidxml
     void parse_error_handler(const char *what, void *where) { std::cout << "Parse error: " << what << "\n"; std::abort(); } 
 }*/
 
-void parse_error_handler(const char *what, void *where) { std::cout << "Parse error: " << what << "\n"; std::abort(); } 
+

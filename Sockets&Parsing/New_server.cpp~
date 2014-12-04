@@ -115,15 +115,16 @@ std::stringstream test;
     //std::cout << "Waiting to recieve data..."  << std::endl;
 
 std::chrono::time_point<std::chrono::system_clock> start, end;
-   bytes_recieved = recv(new_sd, incomming_data_buffer,1000, 0);
 start = std::chrono::system_clock::now();
  
+   bytes_recieved = recv(new_sd, incomming_data_buffer,550, 0);
+
     // If no data arrives, the program will just wait here until some data arrives.
     if (bytes_recieved == 0) std::cout << "host shut down." << std::endl ;
     if (bytes_recieved == -1)std::cout << "recieve error!" << std::endl ;
     //std::cout << bytes_recieved << " bytes recieved :" << std::endl ;
     incomming_data_buffer[bytes_recieved] = '\0';
-  //  std::cout << incomming_data_buffer << std::endl;
+    //std::cout << bytes_recieved << std::endl;
     
     //---from char buffer to string (works!!)
     //std::string mystring = std::string(incomming_data_buffer);

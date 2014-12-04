@@ -106,7 +106,7 @@ void read(Sked *sked, std::istream & is )
 	}*/
   f.Type = pt.get<unsigned int>("RobotMessage.Type");
   f.Status = pt.get<std::string>("RobotMessage.Status");
-    /* f.Mode = pt.get<std::string>("RobotMessage.Mode");	
+     f.Mode = pt.get<std::string>("RobotMessage.Mode");	
       f.Time = pt.get<float>("RobotMessage.Time");
       
      f.Frame.push_back(pt.get<std::string>("RobotMessage.Frame.<xmlattr>.X"));
@@ -138,7 +138,7 @@ void read(Sked *sked, std::istream & is )
       f.FJoints.push_back(pt.get<std::string>("RobotMessage.FJoints.<xmlattr>.J4"));
       f.FJoints.push_back(pt.get<std::string>("RobotMessage.FJoints.<xmlattr>.J5"));
       f.FJoints.push_back(pt.get<std::string>("RobotMessage.FJoints.<xmlattr>.J6"));
-*/
+
       f.Id = pt.get<std::string>("RobotMessage.<xmlattr>.Id");
       f.Ts = pt.get<std::string>("RobotMessage.<xmlattr>.Ts");
       (*sked).push_back(f);	
@@ -291,7 +291,11 @@ buffer >> value;
  
 
 
-
+void rapidxml::parse_error_handler(const char *what, void *where)
+{
+	std::cout << "Parse error: " << what << "\n"; 
+	std::abort(); 
+} 
 
 
 
